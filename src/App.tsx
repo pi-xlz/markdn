@@ -1,12 +1,19 @@
+import { Editor, Preview, SideBar, Toolbar } from "./containers";
+
 function App() {
   return (
-    <>
-      <aside></aside>
+    <article>
+      <aside>
+        <SideBar />
+      </aside>
       <main>
-        <header></header>
-        <article></article>
+        <Toolbar />
+        <article>
+          <Editor />
+          <Preview />
+        </article>
       </main>
-    </>
+    </article>
   );
 }
 
