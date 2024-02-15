@@ -1,4 +1,4 @@
-import { Button, Doc, ThemeToggle } from "../../components";
+import { Button, Doc, ThemeSwitch } from "../../components";
 
 const SideMenu = () => {
   return (
@@ -7,13 +7,13 @@ const SideMenu = () => {
         <h2>My Documents</h2>
       </header>
       <div>
-        <Button />
+        <Button>+ New Document</Button>
         <div>
           <Doc />
           <Doc />
         </div>
       </div>
-      <ThemeToggle />
+      <ThemeSwitch />
     </>
   );
 };

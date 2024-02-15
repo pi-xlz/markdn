@@ -76,7 +76,7 @@ export const HidePreviewIcon = () => {
   );
 };
 
-export const IconLightMode = () => {
+export const LightModeIcon = () => {
   return (
     <svg
       width="18"
