@@ -2,7 +2,7 @@ import { ShowPreviewIcon } from "@/assets/icons";
 
 const TitleBar = () => {
   return (
-    <header>
+    <header className="w-full">
       <p>MARKDOWN</p>
       <span>
         <ShowPreviewIcon />
