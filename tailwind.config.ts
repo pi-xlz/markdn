@@ -32,6 +32,9 @@ const config = {
         "2xl": "1400px",
       },
     },
+    gridTemplateRows: {
+      editorRows: "auto 1fr",
+    },
     extend: {
       colors: {
         "clr-prmry-100": "hsl(13, 75%, 58%)",
