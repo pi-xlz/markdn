@@ -100,7 +100,7 @@ export const MenuIcon = () => {
     >
       <g
         fill="#FFF"
-        fill-rule="evenodd"
+        fillRule="evenodd"
       >
         <path d="M0 0h30v2H0zM0 8h30v2H0zM0 16h30v2H0z" />
       </g>

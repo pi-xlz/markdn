@@ -39,7 +39,7 @@ const config = {
       colors: {
         "clr-prmry-100": "hsl(13, 75%, 58%)",
         "clr-prmry-200": "hsl(21, 86%, 67%)",
-        "clr-scndry-100": "hsl(213, 4%, 51%)",
+        "clr-scndry-100": "hsl(216, 4%, 51%)",
         "clr-text-dark": "hsl(216, 9%, 23%)",
         "clr-text-light": "hsl(222, 9%, 78%)",
         "clr-bg-dark": "hsl(225, 9%, 9%)",

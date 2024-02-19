@@ -1,15 +1,13 @@
-import { ShowPreviewIcon } from "@/assets/icons";
+import { TitleBar } from "@/components";
 
 const Preview = () => {
   return (
-    <section>
-      <header>
-        <span>PREVIEW</span>
-        <span>
-          <ShowPreviewIcon />
-        </span>
-      </header>
-      <article className="bg-cyan-50 dark:bg-black">
+    <section className="grow flex flex-col">
+      <TitleBar
+        type="PREVIEW"
+        className="hidden"
+      />
+      <article className="w-full grow py-4 px-5">
         # Welcome to Markdown Markdown is a lightweight markup language that you
         can use to add formatting elements to plaintext text documents. ## How
         to use this? 1. Write markdown in the markdown editor window 2. See the

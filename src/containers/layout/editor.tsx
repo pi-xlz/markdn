@@ -8,7 +8,10 @@ const Editor = () => {
         type="MARKDOWN"
       />
       <article className="w-full grow p-4">
-        <textarea className="resize-none h-full w-full font-mono text-sm leading-6 text-clr-text-dark caret-clr-text-dark outline-none border-none"></textarea>
+        <textarea
+          autoFocus
+          className="resize-none h-full w-full font-mono text-sm leading-6 text-clr-text-dark caret-clr-text-dark outline-none border-none"
+        ></textarea>
       </article>
     </section>
   );
