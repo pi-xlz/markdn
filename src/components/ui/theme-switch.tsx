@@ -3,7 +3,7 @@ import { Switch } from "./switch";
 
 const ThemeSwitch = () => {
   return (
-    <div>
+    <div className="w-full max-w-[10rem] flex justify-center items-center gap-3">
       <span>
         <DarkModeIcon />
       </span>

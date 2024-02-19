@@ -4,6 +4,8 @@ export { default as Button } from "./ui/button";
 export { default as Dialog } from "./ui/dialog";
 export { default as ThemeSwitch } from "./ui/theme-switch";
 export { default as Doc } from "./ui/document";
+export { default as FileName } from "./ui/file-name";
+export { default as TitleBar } from "./ui/title-bar";
 //? MARKDOWN
 export { default as BlockQuote } from "./md/blockquote";
 export { default as Code } from "./md/code";

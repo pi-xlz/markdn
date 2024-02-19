@@ -1,19 +1,27 @@
+import { LogoIcon } from "@/assets/icons";
 import { Button, Doc, ThemeSwitch } from "../../components";
 
 const SideMenu = () => {
   return (
     <>
-      <header>
-        <h2>My Documents</h2>
-      </header>
       <div>
-        <Button>+ New Document</Button>
-        <div>
-          <Doc />
-          <Doc />
+        <div className="w-full py-[1.6875rem] pr-[5.9375rem]">
+          <LogoIcon />
+        </div>
+        <header className="flex flex-col gap-[1.8125rem]">
+          <h2 className="text-clr-scndry-100 uppercase text-sm font-medium tracking-[2px]">
+            My Documents
+          </h2>
+          <Button>+ New Document</Button>
+        </header>
+        <div className="pt-6 flex flex-col gap-[1.625rem]">
+          <Doc title="untitled-document.md" />
+          <Doc title="welcome.md" />
         </div>
       </div>
-      <ThemeSwitch />
+      <div className="mt-auto flex justify-center items-center w-full py-[1.6875rem]">
+        <ThemeSwitch />
+      </div>
     </>
   );
 };
