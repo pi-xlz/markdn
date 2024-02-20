@@ -7,7 +7,7 @@ type DialogProps = JSX.IntrinsicElements["dialog"] & {
 };
 
 const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
-  ({ title, message }: DialogProps, ref) => {
+  ({ title, message, ...rest }: DialogProps, ref) => {
     const defaultTitle = "Delete this document?";
     const defaultMsg =
       "Are you sure you want to delete the ‘welcome.md’ document and its contents? This action cannot be reversed.";
@@ -16,6 +16,7 @@ const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
         ref={ref}
         className="z-50 dialog rounded"
         id="deleteDialog"
+        {...rest}
       >
         <h3 className="font-slab text-xl font-bold text-clr-text-dark mb-4">
           {title || defaultTitle}

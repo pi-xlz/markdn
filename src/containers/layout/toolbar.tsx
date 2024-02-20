@@ -1,40 +1,25 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { DeleteIcon, LogoIcon, MenuIcon, SaveIcon } from "@/assets/icons";
 import { Button, Dialog, FileName } from "@/components";
-// import { Toggle } from "@/components/ui/toggle";
 
 const Toolbar = () => {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
-  const handleDelete = () => {
-    console.log("clicked");
+  const handleDelete = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.stopPropagation();
     if (dialogRef.current) {
       dialogRef.current.showModal();
     }
   };
 
-  useEffect(() => {
-    const handleDocumentClick = (event: MouseEvent) => {
-      if (
-        dialogRef.current &&
-        !dialogRef.current.contains(event.target as Node)
-      ) {
-        dialogRef.current.close();
-      }
-    };
-
-    document.addEventListener("mousedown", handleDocumentClick);
-
-    return () => {
-      document.removeEventListener("mousedown", handleDocumentClick);
-    };
-  }, [dialogRef]);
-
   return (
-    <header className="w-full flex justify-between">
-      {/* <Toggle className="bg-clr-text-dark basis-14 rounded-none self-stretch">
-      <MenuIcon />
-      </Toggle> */}
+    <header
+      // onClick={(e) => {
+      //   if (dialogRef.current && e.target === dialogRef.current)
+      //     dialogRef.current?.close();
+      // }}
+      className="w-full flex justify-between"
+    >
       <Dialog ref={dialogRef} />
       <button className="bg-clr-text-dark w-14 px-4 flex items-center justify-center">
         <MenuIcon />
