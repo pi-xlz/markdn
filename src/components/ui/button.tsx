@@ -14,10 +14,20 @@ type ButtonPropsNoIcon = ButtonPropsBase & {
 
 type ButtonProps = ButtonPropsNoIcon | ButtonPropsIcon;
 
-// @ts-expect-error WithIcon and Icon props don't exist on ButtonProps
-const Button = ({ children, withIcon, icon, responsive }: ButtonProps) => {
+const Button = ({
+  children,
+  withIcon,
+  // @ts-expect-error WithIcon and Icon props don't exist on ButtonProps
+  icon,
+  // @ts-expect-error WithIcon and Icon props don't exist on ButtonProps
+  responsive,
+  ...rest
+}: ButtonProps) => {
   return (
-    <button className="w-full rounded text-center text-md text-clr-bg-light flex items-center justify-center md:gap-2 p-3 bg-clr-prmry-100 hover:bg-clr-prmry-200 active:scale-[.99] transition">
+    <button
+      {...rest}
+      className="w-full rounded text-center text-md text-clr-bg-light flex items-center justify-center md:gap-2 p-3 bg-clr-prmry-100 hover:bg-clr-prmry-200 active:scale-[.99] transition"
+    >
       {withIcon ? <span className="">{icon}</span> : ""}
       <span className={responsive ? "hidden md:inline transition" : ""}>
         {children}

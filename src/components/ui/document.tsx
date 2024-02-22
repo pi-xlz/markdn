@@ -2,9 +2,10 @@ import { DocumentIcon } from "../../assets/icons";
 
 interface DocProps {
   title: string;
+  createdAt: string;
 }
 
-const Document = ({ title }: DocProps) => {
+const Document = ({ title, createdAt }: DocProps) => {
   return (
     <div className="w-full flex items-center gap-[1.0188rem]">
       <span>
@@ -12,7 +13,7 @@ const Document = ({ title }: DocProps) => {
       </span>
       <div className="flex flex-col">
         <span className="font-light text-xs text-clr-scndry-100 tracking-[0px]">
-          01 April 2022
+          {createdAt || "01 April 2022"}
         </span>
         <p className="text-md text-clr-bg-light">{title}</p>
       </div>

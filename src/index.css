@@ -4,17 +4,34 @@
 @tailwind components;
 @tailwind utilities;
 
-.dialog {
-  position: fixed;
-  inset: 0px;
-  width: 21.4375rem;
-  max-width: 100vw;
-  max-height: 100dvh;
-  margin: auto;
-  background: #ffffff;
-  padding: 1.5rem;
+.dark {
+  --clr-primary-100: 13, 75%, 58%;
+  --clr-primary-200: 21, 86%, 67%;
+  --clr-mdn-text: 222, 9%, 78%;
+  --clr-prview-text-prmry: 0, 0%, 100%;
+  --clr-prview-text-scndry: 222, 9%, 78%;
+  --clr-prview-highlight: 220, 7%, 18%;
+  --clr-base-bg: 225, 9%, 9%;
+  --clr-titlebar-bg: 216, 8%, 12%;
+  --clr-titlebar-text: 222, 9%, 78%;
+  --clr-dialog-bg: 216, 8%, 12%;
+  --clr-dialog-title: 0, 0%, 100%;
+  --clr-dialog-desc: 222, 9%, 78%;
+  --clr-dialog-backdrop: 216, 4%, 51%, 0.5;
 }
 
-dialog::backdrop {
-  background: rgb(21, 22, 25, 0.5);
+.light {
+  --clr-primary-100: 13, 75%, 58%;
+  --clr-primary-200: 21, 86%, 67%;
+  --clr-mdn-text: 216, 9%, 23%;
+  --clr-prview-text-prmry: 216, 9%, 23%;
+  --clr-prview-text-scndry: 216, 4%, 51%;
+  --clr-prview-highlight: 0, 0%, 96%;
+  --clr-base-bg: 0, 0%, 100%;
+  --clr-titlebar-bg: 0, 0%, 96%;
+  --clr-titlebar-text: 216, 4%, 51%;
+  --clr-dialog-bg: 0, 0%, 100%;
+  --clr-dialog-title: 216, 9%, 23%;
+  --clr-dialog-desc: 216, 4%, 51%;
+  --clr-dialog-backdrop: 225, 9%, 9%, 0.5;
 }

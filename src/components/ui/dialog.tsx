@@ -1,33 +1,58 @@
-import { forwardRef } from "react";
 import { Button } from "..";
+import { cn } from "@/lib/utils";
 
-type DialogProps = JSX.IntrinsicElements["dialog"] & {
+type DialogProps = JSX.IntrinsicElements["div"] & {
   title?: string;
   message?: string;
+  isDialogOpen?: boolean;
+  onCloseDialog: (arg: boolean) => void;
 };
 
-const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
-  ({ title, message, ...rest }: DialogProps, ref) => {
-    const defaultTitle = "Delete this document?";
-    const defaultMsg =
-      "Are you sure you want to delete the ‘welcome.md’ document and its contents? This action cannot be reversed.";
-    return (
-      <dialog
-        ref={ref}
-        className="z-50 dialog rounded"
+const defaultTitle = "Delete this document?";
+const defaultMsg =
+  "Are you sure you want to delete the ‘welcome.md’ document and its contents? This action cannot be reversed.";
+
+const Dialog = ({
+  title,
+  message,
+  isDialogOpen,
+  onCloseDialog,
+  ...rest
+}: DialogProps) => {
+  const handleClickBackdrop = (
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => {
+    if (e.target === e.currentTarget) {
+      console.log("Backdrop Clicked!!!");
+      onCloseDialog(false);
+    }
+  };
+
+  return (
+    <div
+      onClick={handleClickBackdrop}
+      className={cn(
+        "z-50 fixed justify-center items-center bg-clr-dialog-bkdrp w-full h-dvh hidden",
+        {
+          flex: isDialogOpen,
+        }
+      )}
+    >
+      <div
+        className="p-6 bg-clr-dialog-bg rounded w-[21.4375rem]"
         id="deleteDialog"
         {...rest}
       >
-        <h3 className="font-slab text-xl font-bold text-clr-text-dark mb-4">
+        <h3 className="font-slab text-xl font-bold text-clr-dialog-title mb-4">
           {title || defaultTitle}
         </h3>
-        <p className="font-slab text-sm leading-6 text-clr-scndry-100 mb-4">
+        <p className="font-slab text-sm leading-6 text-clr-dialog-desc mb-4">
           {message || defaultMsg}
         </p>
         <Button>Confirm & Delete</Button>
-      </dialog>
-    );
-  }
-);
+      </div>
+    </div>
+  );
+};
 
 export default Dialog;

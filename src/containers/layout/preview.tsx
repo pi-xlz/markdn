@@ -7,7 +7,7 @@ const Preview = () => {
         type="PREVIEW"
         className="hidden"
       />
-      <article className="w-full grow py-4 px-5">
+      <article className="w-full grow py-4 px-5 bg-clr-base-bg text-clr-prview-txt">
         # Welcome to Markdown Markdown is a lightweight markup language that you
         can use to add formatting elements to plaintext text documents. ## How
         to use this? 1. Write markdown in the markdown editor window 2. See the

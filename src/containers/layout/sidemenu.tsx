@@ -15,8 +15,14 @@ const SideMenu = () => {
           <Button>+ New Document</Button>
         </header>
         <div className="pt-6 flex flex-col gap-[1.625rem]">
-          <Doc title="untitled-document.md" />
-          <Doc title="welcome.md" />
+          <Doc
+            createdAt=""
+            title="untitled-document.md"
+          />
+          <Doc
+            createdAt=""
+            title="welcome.md"
+          />
         </div>
       </div>
       <div className="mt-auto flex justify-center items-center w-full py-[1.6875rem]">
