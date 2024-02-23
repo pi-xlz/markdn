@@ -26,10 +26,10 @@ const Button = ({
   return (
     <button
       {...rest}
-      className="w-full rounded text-center text-md text-clr-bg-light flex items-center justify-center md:gap-2 p-3 bg-clr-prmry-100 hover:bg-clr-prmry-200 active:scale-[.99] transition"
+      className="flex w-full items-center justify-center rounded bg-clr-prmry-100 p-3 text-center text-md text-clr-bg-light transition hover:bg-clr-prmry-200 active:scale-[.99] md:gap-2 "
     >
       {withIcon ? <span className="">{icon}</span> : ""}
-      <span className={responsive ? "hidden md:inline transition" : ""}>
+      <span className={responsive ? "hidden transition md:inline" : ""}>
         {children}
       </span>
     </button>
