@@ -1,24 +1,26 @@
-import { useEffect } from "react";
+import { useState } from "react";
 import { TitleBar } from "./components";
 import { Editor, Preview, SideBar, Toolbar } from "./containers";
 
+//! todo: refactor to not use prop drilling
+
 function App() {
-  useEffect(() => {
-    // const theme: "light" | "dark" = "dark";
-    document.body.classList.add("light");
-  }, []);
+  const [isPreview, setIsPreview] = useState(false);
   return (
-    <article className="h-dvh grid grid-cols-2 w-full">
-      <aside className="-translate-x-[15.65rem] w-[15.625rem] fixed bg-clr-accent-100 px-6 h-full z-0 flex flex-col">
+    <article className="grid h-dvh w-full grid-cols-2">
+      <aside className="fixed z-0 flex h-full w-[15.625rem] -translate-x-[15.65rem] flex-col bg-clr-accent-100 px-6">
         <SideBar />
       </aside>
-      <main className="w-screen h-dvh flex flex-col">
+      <main className="flex h-dvh w-screen flex-col ">
         <Toolbar />
-        <article className="grow flex flex-col">
-          <TitleBar type="NEUTRAL" />
-          <section className="grow flex flex-col">
-            <Editor />
-            {/* <Preview /> */}
+        <article className="flex grow flex-col">
+          <TitleBar
+            isPreview={isPreview}
+            setIsPreview={setIsPreview}
+            type="NEUTRAL"
+          />
+          <section className="flex grow flex-col">
+            {!isPreview ? <Editor isPreview={isPreview} /> : <Preview />}
           </section>
         </article>
       </main>

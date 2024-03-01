@@ -1,43 +1,78 @@
-import { ShowPreviewIcon } from "@/assets/icons";
+import { HidePreviewIcon, ShowPreviewIcon } from "@/assets/icons";
 import { cn } from "@/lib/utils";
 
-type TitleBarProps = JSX.IntrinsicElements["header"] & {
-  type: "MARKDOWN" | "PREVIEW" | "NEUTRAL";
+// todo: cleanup repetitive types
+
+type BaseTitleBarProps = JSX.IntrinsicElements["header"] & {
+  isPreview: boolean;
 };
 
-const TitleBar = ({ type, className }: TitleBarProps) => {
+type TitleBarPropsMdn = BaseTitleBarProps & {
+  type: "MARKDOWN";
+};
+
+type TitleBarPropsPrview = BaseTitleBarProps & {
+  type: "PREVIEW";
+  setIsPreview: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+type TitleBarPropsNeutral = BaseTitleBarProps & {
+  type: "NEUTRAL";
+  setIsPreview: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+type TitleBarProps =
+  | TitleBarPropsMdn
+  | TitleBarPropsPrview
+  | TitleBarPropsNeutral;
+
+const TitleBar = ({
+  type,
+  className,
+  // @ts-expect-error setIsPreview prop don't exist on ButtonProps
+  setIsPreview,
+  isPreview,
+}: TitleBarProps) => {
   return (
     <header
       className={cn(
-        "flex justify-between items-center w-full py-3 px-4 bg-clr-titlebar-bg text-clr-titlebar-txt font-medium text-sm tracking-[2px]",
-        className
+        "flex w-full items-center justify-between bg-clr-titlebar-bg px-4 py-3 text-sm font-medium tracking-[2px] text-clr-titlebar-txt",
+        className,
       )}
     >
-      <Title type={type} />
+      <Title isPreview={isPreview} setIsPreview={setIsPreview} type={type} />
     </header>
   );
 };
 
 export default TitleBar;
 
-const Title = ({ type }: { type: TitleBarProps["type"] }) => {
+const Title = ({
+  type,
+  isPreview,
+  setIsPreview,
+}: {
+  type: "MARKDOWN" | "PREVIEW" | "NEUTRAL";
+  isPreview: boolean;
+  setIsPreview: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   if (type === "MARKDOWN") return <p>MARKDOWN</p>;
 
   if (type === "PREVIEW")
     return (
       <>
         <p>PREVIEW</p>
-        <button>
-          <ShowPreviewIcon />
+        <button onClick={() => setIsPreview((p) => !p)}>
+          {isPreview ? <HidePreviewIcon /> : <ShowPreviewIcon />}
         </button>
       </>
     );
 
   return (
     <>
-      <p>MARKDOWN</p>
-      <button>
-        <ShowPreviewIcon />
+      <p>{isPreview ? "PREVIEW" : "MARKDOWN"}</p>
+      <button onClick={() => setIsPreview((p) => !p)}>
+        {isPreview ? <HidePreviewIcon /> : <ShowPreviewIcon />}
       </button>
     </>
   );

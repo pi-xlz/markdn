@@ -18,6 +18,7 @@
   --clr-dialog-title: 0, 0%, 100%;
   --clr-dialog-desc: 222, 9%, 78%;
   --clr-dialog-backdrop: 216, 4%, 51%, 0.5;
+  --clr-editor-bg: 225, 9%, 9%;
 }
 
 .light {
@@ -34,4 +35,5 @@
   --clr-dialog-title: 216, 9%, 23%;
   --clr-dialog-desc: 216, 4%, 51%;
   --clr-dialog-backdrop: 225, 9%, 9%, 0.5;
+  --clr-editor-bg: 0, 0%, 100%;
 }

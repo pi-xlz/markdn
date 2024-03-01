@@ -48,6 +48,7 @@ const config = {
         "clr-dialog-title": "hsl(var(--clr-dialog-title))",
         "clr-dialog-desc": "hsl(var(--clr-dialog-desc))",
         "clr-dialog-bkdrp": "hsla(var(--clr-dialog-backdrop))",
+        "clr-editor-bg": "hsla(var(--clr-editor-bg))",
         "clr-prmry-100": "hsl(13, 75%, 58%)",
         "clr-prmry-200": "hsl(21, 86%, 67%)",
         "clr-scndry-100": "hsl(216, 4%, 51%)",

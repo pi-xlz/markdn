@@ -1,16 +1,13 @@
 import { TitleBar } from "@/components";
 
-const Editor = () => {
+const Editor = ({ isPreview }: { isPreview: boolean }) => {
   return (
-    <section className="grow flex flex-col">
-      <TitleBar
-        className="hidden"
-        type="MARKDOWN"
-      />
-      <article className="w-full grow p-4 bg-clr-base-bg text-clr-mdn-text">
+    <section className="flex grow flex-col">
+      <TitleBar isPreview={isPreview} className="hidden" type="MARKDOWN" />
+      <article className="w-full grow bg-clr-base-bg p-4 text-clr-mdn-text">
         <textarea
           autoFocus
-          className="resize-none h-full w-full font-mono text-sm leading-6 text-clr-text-prmry caret-clr-text-prmry outline-none border-none"
+          className=" text-clr-text-prmry caret-clr-text-prmry bg-clr-editor-bg h-full w-full resize-none border-none font-mono text-sm leading-6 outline-none"
         ></textarea>
       </article>
     </section>
